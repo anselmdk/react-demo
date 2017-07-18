@@ -4,5 +4,21 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+import { Provider } from 'react-redux';
+import store from './store';
+import defaultAction from './defaultAction';
+
+import Form from './Form';
+
+
+const rootEl = document.getElementById('root');
+ReactDOM.render(
+  <Provider store={store}>
+    <App>
+      <Form onSubmit={defaultAction} />
+    </App>
+  </Provider>,
+  rootEl,
+);
 registerServiceWorker();
